@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
+import React, { useState, useEffect } from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
 import axios from "axios";
 
-import TodoList from './components/TodoList';
-import TodoForm from './components/TodoForm';
+import TodoList from "./components/TodoList"
+import TodoForm from "./components/TodoForm";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -17,10 +17,10 @@ function App() {
         alert("Something went wrong");
       })
   }, [])
-  
+
   return (
-    <div className="App">
-      <Navbar bg="light">
+    <div>
+      <Navbar bg="light" style={{ marginBottom: "20px" }}>
         <Container>
           <Navbar.Brand href="#">
             Todo App
@@ -28,8 +28,8 @@ function App() {
         </Container>
       </Navbar>
       <Container>
-        <TodoForm />
-        <TodoList todos={todos}/>
+        <TodoForm todos={todos} setTodos={setTodos} />
+        <TodoList todos={todos} setTodos={setTodos} />
       </Container>
     </div>
   );
